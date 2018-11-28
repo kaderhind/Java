@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="entityManager"
+		transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>com.releve.planification.entities.Delegation</class>
+		<class>com.releve.planification.entities.Agent</class>
+		<class>com.releve.planification.entities.ResponsableZone</class>
+		<class>com.releve.planification.entities.Releveur</class>
+		<class>com.releve.planification.entities.Local</class>
+		<class>com.releve.planification.entities.Fourniture</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.show_sql" value="true" /> 
+		</properties>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Planification de la releve</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/css/bootstrap-select.min.css">
+	<link href="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/css/shop-item.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/css/business-casual.css">
+	<link rel="stylesheet" type="text/css" href="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/font-awesome/css/font-awesome.min.css">
+<!-- 	<link rel="stylesheet" href="date_picker.css">
+ -->
+
+</head>
+
+<body ng-app="MyApp">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+				<!-- <a class="navbar-brand" href=html"> -->
+					<img src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/img/logo.jpg"  class="img-responsive" id="logo">
+				<!--</a> -->
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produits<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" >201601</a></li>
+							<li><a href="#">201602</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">201603</a></li>
+							<li><a href="#">201604</a></li>
+							<li><a href="#">201605</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Releveurs<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">M.Mohammed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">A.Ahmed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">M.Mohammed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">A.Ahmed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">M.Mohammed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">A.Ahmed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">M.Mohammed</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#">A.Ahmed</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Congé<span class="caret"></span></a>
+						  <ul class="dropdown-menu">
+							<li><a href="#">Déclarer congé</a></li>
+							<li><a href="#">Afficher liste des congés</a></li>
+						  </ul>
+					</li>
+					<li>
+					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">M.mohammed<span class="caret"></span></a>
+					  <ul class="dropdown-menu">
+						<li><a href="#">Se deconnecter</a></li>
+						
+					  </ul>
+
+					</li>   
+				
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+	<!-- Page Content -->
+	<div class="container well">
+		<div class="row" ng-controller="ExampleController" >
+			<div class="col-lg-3">
+				<!-- Parametrage Panel  -->
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						Paramétrage
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12" >
+								<form  novalidate role="form" class="form-horizontal" name="MyForm">
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Fluide</label>
+										<div class="col-sm-9">
+											<select class="selectpicker form-control" multiple ng-model="test.fluide" name="fluide"required>
+											  <option value="P">Eau</option>
+											  <option value="E">Electricite</option>
+											  <option value="T">Haut tension</option>
+											</select>
+											<div ng-show="MyForm.fluide.$error.required && MyForm.fluide.$dirty">
+												<span> Vous devez choisir un fluide</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Type client</label>
+										<div class="col-sm-9">
+											<select class=" form-control selectpicker show-tick" multiple ng-model="test.type" ng-multiple="true" ng-change="getLots(test.type)" name="type" required>
+											  <option value="P">Particulier</option>
+											  <option value="I">Industriel</option>
+											  <option value="A">Administrative</option>
+											</select>
+											<div ng-show="MyForm.type.$error.required && MyForm.type.$dirty">
+												<span> Vous devez choisir un type</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Lot </label>
+										<div class="col-sm-9">
+											<select class="form-control" ng-disabled=" MyForm.type.$invalid || MyForm.fluide.$invalid" 
+											ng-model="test.lot" ng-change="getProduits(test.lot,test.fluide,test.type)" 
+											name="lot" required>
+											  <option ng-repeat="lot in Lots" value="{{lot.lotPK.numero}}">lot {{lot.lotPK.numero}}</option>
+											</select>
+											<span ng-show="MyForm.lot.$error.required && MyForm.lot.$dirty"> Vous devez choisir un lot</span>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Zone</label>
+										<div class="col-sm-9">
+											<select class="form-control" ng-model="test.zone" ng-options="zone as zone.numero for zone in Zones" >
+											</select>
+										</div> 
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Zone type</label>
+										<div class="col-sm-9">
+											<select class="selectpicker form-control" multiple ng-model="test.typeZone" >
+											  <option>Immeuble A</option>
+											  <option>Immeuble B</option>
+											  <option>Immeuble C</option>
+											</select>
+										</div> 
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label">Produit </label>
+										<div class="col-sm-9">
+											<select class="form-control" ng-model="test.produit" name="produit" ng-disabled="MyForm.lot.$invalid" required>
+											  <option ng-repeat="produit in Produits" value="{{ produit.fac_prod}} " ng-disabled="produit.fac_prod < currentProduit ">{{produit.fac_prod}}</option>
+											</select>
+											<span ng-show="MyForm.produit.$error.required && MyForm.produit.$dirty"> Vous devez choisir un produit</span>
+										</div>
+									</div>
+									<button type="button" class="btn btn-primary" ng-click="reset(form)"> Effacer
+									</button>
+									<button type="submit" ng-disabled="MyForm.$invalid" class="btn btn btn-success" ng-click="save(test)"> Valider
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-9">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						Planing des tournees
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-offset-8 col-lg-4 search">
+								<div class="input-group custom-search-form">
+									<input type="text" class="form-control" placeholder="Chercher tournée..." ng-model="TourneeNum">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="button">
+											<i class="fa fa-search"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+								<form  novalidate role="form" name="form">
+									<div class="table-responsive">
+										<table class="table table-bordered table-hover table-striped ">
+											<thead>
+												<tr>
+													<th>N° Tournée</th>
+													<th>Releveur</th>
+													<th>Date de debut</th>
+													<th>Date de fin</th>
+													<th>Dernier date de lecture</th>
+													<th>Nombre de jour</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="tournee in Tournees| filter:TourneeNum" >
+													<td>{{tournee.reference}}</td> 
+													<td>
+														<select class="form-control" ng-model="tournee.releveur.matricule" name="releveur" required>	
+															<option ng-repeat="releveur in Releveurs"
+															value="{{releveur.matricule}}" ng-selected="releveur.nom === tournee.releveur.nom">{{releveur.nom}}</option>
+														</select>
+														<div ng-show="form.releveur.$error.required && form.releveur.$dirty" >
+															<span> Vous devez choisir un releveur </span>
+														</div>
+													</td>
+													<td ng-controller="DatepickerPopupDemoCtrl">
+														<div class="input-group col-sm-10" >
+															<input type="text" class="form-control" uib-datepicker-popup ng-model="tournee.dateDebut" is-open="popup2.opened" datepicker-options="dateDebutOptions" ng-required="true" close-text="Close" name="a" value="tournee.dateFin">		
+															<span class="input-group-btn">
+												            	<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+												            </span>
+														</div>
+													</td>	
+													<td ng-controller="DatepickerPopupDemoCtrl">
+														<div class="input-group col-sm-10" >
+															<input type="text" class="form-control" uib-datepicker-popup ng-model="tournee.dateFin" is-open="popup2.opened" datepicker-options="dateFinOptions" ng-required="true" close-text="Close" value="tournee.dateFin" name="b">		
+															<span class="input-group-btn">
+												            	<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+												            </span>
+														</div>
+														<span ng-show="tournee.dateFin< tournee.dateDebut || tournee.dateFin.$invalid" style="color: red"> Vous devez choisir une date de fin valide </span>
+													</td>
+													<td ng-controller="DatepickerPopupDemoCtrl">
+														<div class="input-group col-sm-10" >
+															<input type="text" class="form-control"  value="{{tournee.dernierDateLecture}}" >		
+															<span class="input-group-btn">
+												            	<button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+												            </span>
+														</div>
+													</td>
+													<td ng-controller="DatepickerPopupDemoCtrl"> {{NumberOfDays()}}</td>
+												</tr>
+											</tbody>
+										</table>
+									 <button class="btn btn-success"  ng-disabled="form.$invalid" type="submit" ng-click="send(Tournee)"> valider</button> 
+									</div>
+								</form>
+								<pre>{{Tournees | json}}</pre>
+							</div> 
+							<nav class="page" ng-controller="PaginationDemoCtrl">
+							  <uib-pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+
+	<!-- Model -->
+	<div class="modal" id="infos"> 
+		<div class="modal-dialog">    
+			<div class="modal-content">      
+				<div class="modal-header">        
+					<button type="button" class="close" datadismiss="modal">x</button>        
+					<h4 class="modal-title text-center">Tournée: 123456</h4>     
+				</div>      
+				<div class="modal-body">      
+					<form role="form">
+						<fieldset >
+							<div class="form-group">
+								<label>Nom du releveur:</label>
+								<select class="form-control">
+									<option>Hassan</option>
+									<option>Mohammed</option>
+									<option>Mohammed</option>
+									<option>Mohammed</option>
+									<option>Mohammed</option>    
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Référence releveur:</label>
+								<select class="form-control">
+									<option>102361</option>
+									<option>206578</option>
+									<option>201658</option>
+									<option>201658</option>
+									<option>201658</option>    
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Dérnière date de lecture</label>
+								<div class="input-group input-append date" id="datePicker">
+									<input type="text" class="form-control" name="date" />
+									<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Prochaine date de lecture</label>
+								<div class="input-group input-append date" id="datePicker">
+									<input type="text" class="form-control" name="date" />
+									<span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Nombre de jours</label>
+								<input class="form-control">
+							</div>
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-ok-sign"></span>
+								Enregistrer</button>
+						</fieldset>
+					</form> 
+				</div>
+				<div class="modal-footer">
+				 <button class="btn btn-info" data-dismiss="modal">Fermer</button> 
+				</div>   
+			</div>  
+		</div> 
+	</div>
+	<!-- Fin model -->
+
+	<div class="container">
+
+		<hr>
+		<!-- Footer -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="text-left"> 
+						<em>Mohammed Mohammed <small> <br>Chef de zone N:1</small> </em>
+					</p>
+				</div>
+			</div>		  
+		</footer>
+
+	</div>
+
+	<!-- /.container -->
+	  <!-- jQuery -->
+	<script src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/jquery.js"></script>
+	<!--<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/jquery.dataTables.min.js"></script>-->
+	<!-- Bootstrap Core JavaScript -->
+	<script src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/bootstrap.min.js"></script>
+	<script src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/bootstrap-select.min.js"></script>
+	<!-- // <script src="date_picker.js"></script> -->
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/angular/angular.min.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/angular/angular-animate.min.js"></script>
+	<!-- <script type="text/javascript" src="../resources/angular/angular-touch.min.js"></script> -->
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/angular/ui-bootstrap.min.js"></script>
+	<!-- <script type="text/javascript" src="../resources/angular/angular-route.min.js"></script> -->
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/app.js"></script>
+
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/services/LotService.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/services/PlanificationService.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/services/ProduitService.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/services/ReleveurService.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/services/TourneeService.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp/resources/js/services/ZoneService.js"></script>
+
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp//resources/js/controllers/DatepickerPopupDemoCtrl.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp//resources/js/controllers/ExampleController.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp//resources/js/controllers/PaginationDemoCtrl.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp//resources/js/controllers/ControllerTable.js"></script>
+	<script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp//resources/js/controllers/ExampleController.js"></script>
+	 <script type="text/javascript" src="C:/Users/azer/Documents/3em_annee/Gestion_de_projet/MyProject/planification_releve/src/main/webapp//resources/js/controllers/ProgreTourneeCtrl.js"></script>
+</html>
